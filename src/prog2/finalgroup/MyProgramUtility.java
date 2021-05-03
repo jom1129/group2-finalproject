@@ -2,6 +2,8 @@ package prog2.finalgroup;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.stream.Stream;
 
 /**
@@ -28,6 +30,8 @@ public class MyProgramUtility {
 
     /** 4. TODO Adi - use comparator */
     protected static ArrayList<Citizen> sortAccordingToDistrictGlobal(ArrayList<Citizen> CitizenList) {
+        /*ArrayList<Citizen> clone = (ArrayList<Citizen>) CitizenList.clone();
+        Collections.sort(clone, Comparator.comparingInt(Citizen::getDistrict));*/
         return CitizenList;
     }
 
