@@ -5,4 +5,5 @@ package prog2.finalgroup;
  * that generates the GUI (Graphical User Interface).
  */
 public class MyProgram {
+    /** TODO Kurt & Adi - hard-coded GUI, IJ's tools not to be utilized */
 }
