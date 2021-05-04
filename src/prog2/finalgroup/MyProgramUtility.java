@@ -13,25 +13,23 @@ import java.util.stream.Stream;
 public class MyProgramUtility {
 
     // SORT OPERATIONS (GLOBALLY)
-    /** 1. TODO Enrico - use comparator */
-    protected static ArrayList<Citizen> sortAccordingToAgeGlobal(ArrayList<Citizen> CitizenList) {
+    /** 1. TODO Enrico  */
+    protected static Stream<Citizen> sortAccordingToAgeGlobal(Stream<Citizen> CitizenList) {
         return CitizenList;
     }
 
-    /** 2. TODO Kurt - use comparator */
-    protected static ArrayList<Citizen> sortAccordingToLastNameGlobal(ArrayList<Citizen> CitizenList) {
+    /** 2. TODO Kurt  */
+    protected static Stream<Citizen> sortAccordingToLastNameGlobal(Stream<Citizen> CitizenList) {
         return CitizenList;
     }
 
-    /** 3. TODO Andre - use comparator */
-    protected static ArrayList<Citizen> sortAccordingToGenderGlobal(ArrayList<Citizen> CitizenList) {
+    /** 3. TODO Andre  */
+    protected static Stream<Citizen> sortAccordingToGenderGlobal(Stream<Citizen> CitizenList) {
         return CitizenList;
     }
 
-    /** 4. TODO Adi - use comparator */
-    protected static ArrayList<Citizen> sortAccordingToDistrictGlobal(ArrayList<Citizen> CitizenList) {
-        /*ArrayList<Citizen> clone = (ArrayList<Citizen>) CitizenList.clone();
-        Collections.sort(clone, Comparator.comparingInt(Citizen::getDistrict));*/
+    /** 4. TODO Adi */
+    protected static Stream<Citizen> sortAccordingToDistrictGlobal(Stream<Citizen> CitizenList) {
         return CitizenList;
     }
 
@@ -53,27 +51,27 @@ public class MyProgramUtility {
 
     // SHOW OPERATIONS (GLOBALLY)
     /** 1. TODO Enrico - iterate manually through loops */
-    protected static ArrayList<Citizen> showResidentsGlobal(ArrayList<Citizen> CitizenList) {
+    protected static Stream<Citizen> showResidentsGlobal(Stream<Citizen> CitizenList) {
         return CitizenList;
     }
 
     /** 2. TODO Jomari - iterate manually through loops */
-    protected static ArrayList<Citizen> showNonResidentsGlobal(ArrayList<Citizen> CitizenList) {
+    protected static Stream<Citizen> showNonResidentsGlobal(Stream<Citizen> CitizenList) {
         return CitizenList;
     }
 
     /** 3. TODO Kurt - iterate manually through loops */
-    protected static ArrayList<Citizen> showMalesGlobal(ArrayList<Citizen> CitizenList) {
+    protected static Stream<Citizen> showMalesGlobal(Stream<Citizen> CitizenList) {
         return CitizenList;
     }
 
     /** 4. TODO Jerome - iterate manually through loops */
-    protected static ArrayList<Citizen> showFemalesGlobal(ArrayList<Citizen> CitizenList) {
+    protected static Stream<Citizen> showFemalesGlobal(Stream<Citizen> CitizenList) {
         return CitizenList;
     }
 
     /** 5. TODO EJ - iterate manually through loops */
-    protected static ArrayList<Citizen> showAgesWithinRangeGlobal(ArrayList<Citizen> CitizenList) {
+    protected static Stream<Citizen> showAgesWithinRangeGlobal(Stream<Citizen> CitizenList) {
         return CitizenList;
     }
 
