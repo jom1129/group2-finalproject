@@ -1,16 +1,46 @@
 package prog2.finalgroup;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.stream.Stream;
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
 
 /**
  * Contains the code that will convert the input file (data.csv) into a
  * list of Citizen objects and processes the list to come up with useful information
  */
 public class MyProgramUtility {
+    // Source for regex used:
+    // https://stackoverflow.com/questions/1757065/java-splitting-a-comma-separated-string-but-ignoring-commas-in-quotes
+    private static BufferedReader br;
+    private static final Scanner keyboard = new Scanner(System.in);
+    protected static ArrayList<Citizen> parseCSV(String fileName) {
+        ArrayList<Citizen> citizenArrayList = new ArrayList<>();
+        String line;
+        try {
+            br = new BufferedReader(new FileReader(fileName));
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                // Split on comma
+                String[] citizenCSV = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                // Create course object to store values
+                Citizen citizenTemp = new Citizen();
+                // add values from csv to Course object
+                citizenTemp.setFullName(citizenCSV[1] + " " + citizenCSV[0]);
+                citizenTemp.setEmail(citizenCSV[2]);
+                citizenTemp.setAddress(citizenCSV[3]);
+                citizenTemp.setAge(Integer.parseInt(citizenCSV[4]));
+                citizenTemp.setIsResident(citizenCSV[5].equalsIgnoreCase("Resident"));
+                citizenTemp.setDistrict(Integer.parseInt(citizenCSV[6]));
+                citizenTemp.setGender(citizenCSV[7].charAt(0));
+                citizenArrayList.add(citizenTemp);
+            }
+        } catch (FileNotFoundException fileNotFoundException) {
+            System.out.println("File not found.");
+        } catch (IOException ioException) {
+            System.out.println("I/O error: " + ioException);
+        }
+        return citizenArrayList;
+    }
 
     // SORT OPERATIONS (GLOBALLY)
     /** 1. TODO Enrico  */
