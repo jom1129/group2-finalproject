@@ -46,11 +46,11 @@ public class MyProgramUtility {
     /** 1. TODO Enrico  */
     protected static Stream<Citizen> sortAccordingToAgeGlobal(Stream<Citizen> CitizenList) {
         return CitizenList;
-        .stream();
+        /*.stream();
         .sorted(
                (citizen1, citizen2) ->
                        Double.compare(citizen2.getAge(), citizen1.getAge())
-                )
+                )*/
     }
 
     /** 2. TODO Kurt  */
@@ -145,9 +145,9 @@ public class MyProgramUtility {
     /** 2. TODO Enrico - Use streams */
     protected static Stream<Citizen> countMales(Stream<Citizen> CitizenList) {
         return CitizenList;
-        CitizenList.stream()
+       /* CitizenList.stream()
             .filter(p -> p.getGender().equals(Gender.MALE))
-            .count();
+            .count();*/
     }
 
     /** 3. TODO Kurt - Use the result returned by item number 3, then subtract from the total number of Citizen objects */
