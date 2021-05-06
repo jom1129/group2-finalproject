@@ -12,7 +12,6 @@ public class MyProgramUtility {
     // Source for regex used:
     // https://stackoverflow.com/questions/1757065/java-splitting-a-comma-separated-string-but-ignoring-commas-in-quotes
     private static BufferedReader br;
-    private static final Scanner keyboard = new Scanner(System.in);
     protected static ArrayList<Citizen> parseCSV(String fileName) {
         ArrayList<Citizen> citizenArrayList = new ArrayList<>();
         String line;
