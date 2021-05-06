@@ -6,6 +6,10 @@ package prog2.finalgroup;
  */
 public class MyProgram {
     /** TODO Kurt & Adi - hard-coded GUI, IJ's tools not to be utilized */
+
+    MyProgram() {
+
+    }
     public static void main(String[] args) {
 
     }
