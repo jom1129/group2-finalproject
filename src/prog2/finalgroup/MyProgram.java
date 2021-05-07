@@ -3,6 +3,8 @@ package prog2.finalgroup;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +16,9 @@ import java.util.stream.Stream;
  * that generates the GUI (Graphical User Interface).
  */
 public class MyProgram extends JFrame {
-    /** TODO Kurt & Adi - hard-coded GUI, IJ's tools not to be utilized */
+    /**
+     * TODO Kurt & Adi - hard-coded GUI, IJ's tools not to be utilized
+     */
 
     private ArrayList<Citizen> list = MyProgramUtility.parseCSV("res/data.csv");
 
@@ -49,6 +53,8 @@ public class MyProgram extends JFrame {
         sortAccordingToAgeGloballyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (scrollPane.isVisible())
+                    scrollPane.setVisible(false);
                 // code utilizing JTable here
             }
         });
@@ -58,6 +64,8 @@ public class MyProgram extends JFrame {
         sortAccordingToNameGloballyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (scrollPane.isVisible())
+                    scrollPane.setVisible(false);
                 // code utilizing JTable here
             }
         });
@@ -67,6 +75,8 @@ public class MyProgram extends JFrame {
         sortAccordingToGenderGloballyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (scrollPane.isVisible())
+                    scrollPane.setVisible(false);
                 // code utilizing JTable here
             }
         });
@@ -81,7 +91,7 @@ public class MyProgram extends JFrame {
                 if (scrollPane.isVisible())
                     scrollPane.setVisible(false);
                 DefaultTableModel tableModel = new DefaultTableModel(column, 0);
-                for (Citizen c: citizenArrayList) {
+                for (Citizen c : citizenArrayList) {
                     String r = "", g = "";
                     if (c.isResident()) r = "Resident";
                     else r = "Non-Resident";
@@ -91,7 +101,21 @@ public class MyProgram extends JFrame {
                             c.getAge(), r, c.getDistrict(), g};
                     tableModel.addRow(data);
                 }
-                citizenTable = new JTable(tableModel);
+
+                // Auto-resizing to cell content source code
+                // https://stackoverflow.com/questions/17858132/automatically-adjust-jtable-column-to-fit-content/25570812
+                citizenTable = new JTable(tableModel) {
+                    public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+                        Component component = super.prepareRenderer(renderer, row, column);
+                        int rendererWidth = component.getPreferredSize().width;
+                        TableColumn tableColumn = getColumnModel().getColumn(column);
+                        tableColumn.setPreferredWidth(Math.max(rendererWidth +
+                                getIntercellSpacing().width, tableColumn.getPreferredWidth()));
+                        return component;
+                    }
+                };
+                citizenTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
                 scrollPane = new JScrollPane(citizenTable);
                 citizenPane.add(scrollPane);
                 pack();
@@ -259,6 +283,7 @@ public class MyProgram extends JFrame {
         pack();
         setVisible(true);
     }
+
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> new MyProgram());
     }

@@ -45,7 +45,7 @@ public class MyProgramUtility {
     // SORT OPERATIONS (GLOBALLY)
     /** 1. TODO Enrico  */
     protected static ArrayList<Citizen> sortAccordingToAgeGlobal(Stream<Citizen> CitizenList) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
         /*.stream();
         .sorted(
                (citizen1, citizen2) ->
@@ -55,12 +55,12 @@ public class MyProgramUtility {
 
     /** 2. TODO Kurt  */
     protected static ArrayList<Citizen> sortAccordingToLastNameGlobal(Stream<Citizen> CitizenList) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 3. TODO Andre  */
     protected static ArrayList<Citizen> sortAccordingToGenderGlobal(Stream<Citizen> CitizenList) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**
@@ -78,43 +78,43 @@ public class MyProgramUtility {
     // SORT OPERATIONS (PER DISTRICT)
     /** 1. TODO EJ - use maps */
     protected static ArrayList<Citizen> sortAccordingToAgePerDistrict(Stream<Citizen> CitizenList, int district) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 2. TODO Jerome - use maps */
     protected static ArrayList<Citizen> sortAccordingToLastNamePerDistrict(Stream<Citizen> CitizenList, int district) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 3. TODO Jomari - use maps */
     protected static ArrayList<Citizen> sortAccordingToGenderPerDistrict(Stream<Citizen> CitizenList, int district) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     // SHOW OPERATIONS (GLOBALLY)
     /** 1. TODO Enrico - iterate manually through loops */
     protected static ArrayList<Citizen> showResidentsGlobal(Stream<Citizen> CitizenList) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 2. TODO Jomari - iterate manually through loops */
     protected static ArrayList<Citizen> showNonResidentsGlobal(Stream<Citizen> CitizenList) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 3. TODO Kurt - iterate manually through loops */
     protected static ArrayList<Citizen> showMalesGlobal(Stream<Citizen> CitizenList) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 4. TODO Jerome - iterate manually through loops */
     protected static ArrayList<Citizen> showFemalesGlobal(Stream<Citizen> CitizenList) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 5. TODO EJ - iterate manually through loops */
     protected static ArrayList<Citizen> showAgesWithinRangeGlobal(Stream<Citizen> CitizenList) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     // SHOW OPERATIONS (PER DISTRICT)
@@ -129,12 +129,12 @@ public class MyProgramUtility {
 
     /** 2. TODO Andre - Generate a stream from a Citizen ArrayList then use Stream.filter, then display outputs directly */
     protected static ArrayList<Citizen> showNonResidentsPerDistrict(Stream<Citizen> CitizenList, int district) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 3. TODO EJ - Generate a stream from a Citizen ArrayList then use Stream.filter, then display outputs directly */
     protected static ArrayList<Citizen> showMalesPerDistrict(Stream<Citizen> CitizenList, int district) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 4. TODO Adi - Generate a stream from a Citizen ArrayList then use Stream.filter, then display outputs directly */
@@ -148,18 +148,18 @@ public class MyProgramUtility {
 
     /** 5. TODO Jomari - Generate a stream from a Citizen ArrayList then use Stream.filter, then display outputs directly */
     protected static ArrayList<Citizen> showAgesWithinRangePerDistrict(Stream<Citizen> CitizenList, int district) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     // COUNT OPERATIONS (GLOBALLY)
     /** 1. TODO Jerome - Use streams; Iterate manually through loops or use a comparator */
     protected static ArrayList<Citizen> countPeopleWithinRange(Stream<Citizen> CitizenList) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 2. TODO Enrico - Use streams */
     protected static ArrayList<Citizen> countMales(Stream<Citizen> CitizenList) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
        /* CitizenList.stream()
             .filter(p -> p.getGender().equals(Gender.MALE))
             .count();*/
@@ -167,6 +167,6 @@ public class MyProgramUtility {
 
     /** 3. TODO Kurt - Use the result returned by item number 3, then subtract from the total number of Citizen objects */
     protected static ArrayList<Citizen> countFemales(Stream<Citizen> CitizenList) {
-        return CitizenList;
+        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
     }
 }
