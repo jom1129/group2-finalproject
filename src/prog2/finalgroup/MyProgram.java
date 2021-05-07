@@ -2,9 +2,12 @@ package prog2.finalgroup;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.stream.Stream;
 
 /**
  * This class will contain the main method and also the code
@@ -12,6 +15,8 @@ import java.awt.event.ActionListener;
  */
 public class MyProgram extends JFrame {
     /** TODO Kurt & Adi - hard-coded GUI, IJ's tools not to be utilized */
+
+    private ArrayList<Citizen> list = MyProgramUtility.parseCSV("res/data.csv");
 
     private JPanel buttonPaneGlobal;
     private JPanel buttonPaneGlobalSortOperations;
@@ -23,6 +28,7 @@ public class MyProgram extends JFrame {
     private JPanel citizenPane;
 
     private JTable citizenTable;
+    private JScrollPane scrollPane;
     private JTabbedPane globalOrDistrictSelector;
 
     public MyProgram() {
@@ -34,7 +40,9 @@ public class MyProgram extends JFrame {
         buttonPaneDistrictShowOperations = new JPanel();
         globalOrDistrictSelector = new JTabbedPane();
         citizenPane = new JPanel();
+        scrollPane = new JScrollPane();
         citizenTable = new JTable();
+        String[] column = {"Full Name", "E-mail", "Address", "Age", "Resident", "District", "Gender"};
 
         // Global Buttons and associated actions
         var sortAccordingToAgeGloballyButton = new JButton("Age");
@@ -68,7 +76,25 @@ public class MyProgram extends JFrame {
         sortAccordingToDistrictGloballyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ArrayList<Citizen> citizenArrayList = MyProgramUtility.sortAccordingToDistrictGlobal(list.stream());
                 // code utilizing JTable here
+                if (scrollPane.isVisible())
+                    scrollPane.setVisible(false);
+                DefaultTableModel tableModel = new DefaultTableModel(column, 0);
+                for (Citizen c: citizenArrayList) {
+                    String r = "", g = "";
+                    if (c.isResident()) r = "Resident";
+                    else r = "Non-Resident";
+                    if (c.getGender() == 'F') g = "Female";
+                    else g = "Male";
+                    Object[] data = {c.getFullName(), c.getEmail(), c.getAddress(),
+                            c.getAge(), r, c.getDistrict(), g};
+                    tableModel.addRow(data);
+                }
+                citizenTable = new JTable(tableModel);
+                scrollPane = new JScrollPane(citizenTable);
+                citizenPane.add(scrollPane);
+                pack();
             }
         });
         buttonPaneGlobalSortOperations.add(sortAccordingToDistrictGloballyButton);
@@ -228,7 +254,7 @@ public class MyProgram extends JFrame {
         add(globalOrDistrictSelector, BorderLayout.SOUTH);
 
         // Window options
-        setTitle("Test");
+        setTitle("My Program");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         pack();
         setVisible(true);

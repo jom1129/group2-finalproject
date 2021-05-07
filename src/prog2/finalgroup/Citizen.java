@@ -93,6 +93,19 @@ public class Citizen implements Comparable {
     }
 
     @Override
+    public String toString() {
+        String r = "", g = "";
+        if (isResident()) r = "Resident";
+        else r = "Non-Resident";
+        if (getGender() == 'F') g = "Female";
+        else g = "Male";
+
+        return String.format("%-30s %-50s %-40s %5d %-15s %5d %-10s",
+                getFullName(), getEmail(), getAddress(), getAge(),
+                r, getDistrict(), g);
+    }
+
+    @Override
     public int compareTo(Object o) {
         return 0;
     }
