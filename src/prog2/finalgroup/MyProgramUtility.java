@@ -45,12 +45,10 @@ public class MyProgramUtility {
     // SORT OPERATIONS (GLOBALLY)
     /** 1. TODO Enrico  */
     protected static ArrayList<Citizen> sortAccordingToAgeGlobal(Stream<Citizen> CitizenList) {
-        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
-        /*.stream();
-        .sorted(
-               (citizen1, citizen2) ->
-                       Double.compare(citizen2.getAge(), citizen1.getAge())
-                )*/
+      return CitizenList
+                .sorted((r1, r2)
+                        -> r1.getAge() - r2.getAge())
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 2. TODO Kurt  */
@@ -94,7 +92,9 @@ public class MyProgramUtility {
     // SHOW OPERATIONS (GLOBALLY)
     /** 1. TODO Enrico - iterate manually through loops */
     protected static ArrayList<Citizen> showResidentsGlobal(Stream<Citizen> CitizenList) {
-        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
+        return CitizenList
+        .filter(c -> c.isResident() == true)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 2. TODO Jomari - iterate manually through loops */
@@ -160,9 +160,9 @@ public class MyProgramUtility {
     /** 2. TODO Enrico - Use streams */
     protected static ArrayList<Citizen> countMales(Stream<Citizen> CitizenList) {
         return CitizenList.collect(Collectors.toCollection(ArrayList::new));
-       /* CitizenList.stream()
-            .filter(p -> p.getGender().equals(Gender.MALE))
-            .count();*/
+       return CitizenList
+                .filter(p -> p.getGender() == 'M')
+                .count();
     }
 
     /** 3. TODO Kurt - Use the result returned by item number 3, then subtract from the total number of Citizen objects */
