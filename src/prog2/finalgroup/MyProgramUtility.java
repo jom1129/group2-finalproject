@@ -49,7 +49,7 @@ public class MyProgramUtility {
         /*.stream();
         .sorted(
                (citizen1, citizen2) ->
-                       Double.compare(citizen2.getAge(), citizen1.getAge())
+                       Double.compare(citizen2.getAge()asd, citizen1.getAge())
                 )*/
     }
 
