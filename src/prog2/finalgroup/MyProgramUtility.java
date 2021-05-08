@@ -81,7 +81,10 @@ public class MyProgramUtility {
 
     /** 2. TODO Jerome - use maps */
     protected static ArrayList<Citizen> sortAccordingToLastNamePerDistrict(Stream<Citizen> CitizenList, int district) {
-        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
+        return CitizenList
+            .filter(c -> c.getDistrict() == district)
+            .sorted(Comparator.comparing(Citizen::getFullName))
+            .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 3. TODO Jomari - use maps */
@@ -109,7 +112,9 @@ public class MyProgramUtility {
 
     /** 4. TODO Jerome - iterate manually through loops */
     protected static ArrayList<Citizen> showFemalesGlobal(Stream<Citizen> CitizenList) {
-        return CitizenList.collect(Collectors.toCollection(ArrayList::new));
+        return CitizenList
+            .filter(f -> f.getGender() == 'F')
+            .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /** 5. TODO EJ - iterate manually through loops */
